@@ -5,12 +5,18 @@ import type { IDL } from '@dfinity/candid';
 export interface Umbrella {
   'id' : UmbrellaId,
   'status' : string,
+  'latitude' : number,
+  'longitude' : number,
   'location' : string,
 }
 export type UmbrellaId = bigint;
+export interface User { 'id' : UserId, 'username' : string }
+export type UserId = Principal;
 export interface _SERVICE {
-  'addUmbrella' : ActorMethod<[string], UmbrellaId>,
+  'addUmbrella' : ActorMethod<[string, number, number], [] | [UmbrellaId]>,
+  'createUser' : ActorMethod<[string], boolean>,
   'listAvailableUmbrellas' : ActorMethod<[], Array<Umbrella>>,
+  'login' : ActorMethod<[], [] | [User]>,
   'reserveUmbrella' : ActorMethod<[UmbrellaId], boolean>,
   'returnUmbrella' : ActorMethod<[UmbrellaId], boolean>,
 }

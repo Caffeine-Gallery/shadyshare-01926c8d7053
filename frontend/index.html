@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beach Umbrella Sharing</title>
     <link rel="stylesheet" href="index.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
 </head>
 <body>
     <header>
         <h1>🏖️ Beach Umbrella Sharing</h1>
+        <div id="auth-section">
+            <input type="text" id="username-input" placeholder="Username">
+            <button id="login-button">Login</button>
+            <button id="logout-button" style="display: none;">Logout</button>
+        </div>
     </header>
     <main>
         <section id="available-umbrellas">
@@ -19,6 +25,10 @@
             <h2>Actions</h2>
             <button id="add-umbrella">Add Umbrella</button>
             <button id="refresh-list">Refresh List</button>
+        </section>
+        <section id="map-section">
+            <h2>Umbrella Map</h2>
+            <div id="map" style="height: 400px; width: 100%;"></div>
         </section>
     </main>
     <script type="module" src="index.js"></script>

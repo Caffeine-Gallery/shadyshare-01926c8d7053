@@ -11,6 +11,9 @@ header {
     color: white;
     text-align: center;
     padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 main {
@@ -51,8 +54,32 @@ button:hover {
     background-color: #36648b;
 }
 
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
 #actions {
     margin-top: 2rem;
     display: flex;
     justify-content: space-between;
+}
+
+#auth-section {
+    display: flex;
+    align-items: center;
+}
+
+#auth-section input {
+    margin-right: 0.5rem;
+    padding: 0.3rem;
+}
+
+#map-section {
+    margin-top: 2rem;
+}
+
+#map {
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }

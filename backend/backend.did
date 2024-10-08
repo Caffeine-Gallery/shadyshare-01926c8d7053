@@ -1,13 +1,23 @@
+type UserId = principal;
+type User = 
+ record {
+   id: UserId;
+   username: text;
+ };
 type UmbrellaId = nat;
 type Umbrella = 
  record {
    id: UmbrellaId;
+   latitude: float64;
    location: text;
+   longitude: float64;
    status: text;
  };
 service : {
-  addUmbrella: (text) -> (UmbrellaId);
+  addUmbrella: (text, float64, float64) -> (opt UmbrellaId);
+  createUser: (text) -> (bool);
   listAvailableUmbrellas: () -> (vec Umbrella) query;
+  login: () -> (opt User);
   reserveUmbrella: (UmbrellaId) -> (bool);
   returnUmbrella: (UmbrellaId) -> (bool);
 }
