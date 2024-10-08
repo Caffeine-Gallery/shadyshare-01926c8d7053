@@ -1,0 +1,13 @@
+type UmbrellaId = nat;
+type Umbrella = 
+ record {
+   id: UmbrellaId;
+   location: text;
+   status: text;
+ };
+service : {
+  addUmbrella: (text) -> (UmbrellaId);
+  listAvailableUmbrellas: () -> (vec Umbrella) query;
+  reserveUmbrella: (UmbrellaId) -> (bool);
+  returnUmbrella: (UmbrellaId) -> (bool);
+}
